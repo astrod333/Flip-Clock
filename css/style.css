@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#div1 {
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  background: rgb(238, 236, 237);
+  left: -100px;
+  top: 0px;
+  border-radius: 2%;
+}
+#btn {
+  top: 0px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: aliceblue;
+  background: #000000;
+  position: absolute;
+  left: 100px;
+  border: none;
+}
+body {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  /*min-height: 100vh;*/
+  /* background: #222; */
+  background-color: #000000;
+}
+.clock {
+  width: auto;
+  transform: scale(5, 5);
+}
+.flip-clock-dot {
+  background: #ccc;
+  /*background: #ffffff;*/
+}
+.flip-clock-meridium a {
+  color: #ccc;
+  /*color: #ffffff;*/
+}
+#content {
+  /*color: #fff;*/
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+@media (max-width: 320px) {
+  /*0~320*/
+  body {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    /*min-height: 100vh;*/
+    background: #222;
+  }
+  .clock {
+    width: auto;
+    transform: scale(0.7, 0.7);
+    /* 翻转*/
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    /* Internet Explorer 9*/
+    -moz-transform: rotate(90deg);
+    /* Firefox */
+    -webkit-transform: rotate(90deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(90deg);
+    /* Opera */
+  }
+}
+@media (min-width: 321px) and (max-width: 375px) {
+  /*321~768*/
+  .clock {
+    width: auto;
+    transform: scale(1, 1);
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    /* Internet Explorer 9*/
+    -moz-transform: rotate(90deg);
+    /* Firefox */
+    -webkit-transform: rotate(90deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(90deg);
+    /* Opera */
+  }
+}
+@media (min-width: 376px) and (max-width: 425px) {
+  /*376~425*/
+  .flip-clock-wrapper {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    margin: -3.35em;
+  }
+  .clock {
+    width: auto;
+    transform: scale(1, 1);
+    -ms-transform: rotate(90deg);
+    /* Internet Explorer 9*/
+    -moz-transform: rotate(90deg);
+    /* Firefox */
+    -webkit-transform: rotate(90deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(90deg);
+    /* Opera */
+  }
+}
+@media (min-width: 426px) and (max-width: 768px) {
+  /*426~768*/
+  .clock {
+    width: auto;
+    transform: scale(2, 2);
+  }
+}
+@media (min-width: 769px) {
+  /*769~+∞*/
+  .clock {
+    width: auto;
+    transform: scale(4, 4);
+  }
+}

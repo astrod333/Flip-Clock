@@ -1,0 +1,97 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="./css/flipclock.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="icon" sizes="any" type="image/svg+xml" href="./favicon.ico">
+	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+	<title>FlipClock</title>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/flipclock.js"></script>
+</head>
+
+<body>
+
+	<div id="box">
+		<div id="content">
+			<div class="clock" id="flipclock"></div>
+		</div>
+	</div>
+
+	<div id="div1">
+		shwo
+		Seconds?
+		<button id="btn"></button>
+	</div>
+
+	<script type="text/javascript">
+		let showSeconds = false
+		window.onload = function () {
+			var div1 = document.getElementById('div1');
+			div1.onmouseover = function () {
+				startMove(-10);
+			}
+			div1.onmouseout = function () {
+				startMove(-110);
+			}
+		}
+
+		var timer = null;
+		function startMove(iTarget) {
+			clearInterval(timer);
+			var div1 = document.getElementById('div1');
+			timer = setInterval(function () {
+				var speed = 1;
+				if (div1.offsetLeft > iTarget) {
+					speed = -1;
+				}
+				if (div1.offsetLeft == iTarget) {
+					clearInterval(timer);
+				}
+				div1.style.left = div1.offsetLeft + speed * 10 + 'px';
+			}, 30)
+		}
+
+
+		var clock;
+
+		$(document).ready(function () {
+			clock = $('.clock').FlipClock({
+				clockFace: 'TwentyFourHourClock',
+				showSeconds: showSeconds
+			});
+		});
+
+		document.body.addEventListener('click', function () {
+			// alert('click')
+			if (!document.fullscreenElement &&
+				!document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {  // current working methods
+				if (document.documentElement.requestFullscreen) {
+					document.documentElement.requestFullscreen();
+				} else if (document.documentElement.msRequestFullscreen) {
+					document.documentElement.msRequestFullscreen();
+				} else if (document.documentElement.mozRequestFullScreen) {
+					document.documentElement.mozRequestFullScreen();
+				} else if (document.documentElement.webkitRequestFullscreen) {
+					document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+				}
+			}
+		})
+		var btn = document.getElementById("div1");
+		btn.onclick = function () {
+			showSeconds = !showSeconds
+			$(document).ready(function () {
+				clock = $('.clock').FlipClock({
+					clockFace: 'TwentyFourHourClock',
+					showSeconds: showSeconds
+				});
+			});
+		}
+	</script>
+
+</body>
+
+</html>
